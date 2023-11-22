@@ -19,7 +19,7 @@ exports.addUser = async (req, res, next) => {
  
 }
 exports.deleteUser = async (req, res, next) =>{
-    var id = req.query.id
+    var id = req.body.id
     console.log(req.query)
     var data = await model.User.deleteOne({_id: id})
     if(data.deletedCount>0)
@@ -62,10 +62,9 @@ exports.updateUser = async (req, res, next) =>{
     }
 }
 exports.logInUser = async(req,res,next) =>{
-    var username = req.query.username
-    var password= req.query.password
-    console.log(username, password)
-    var data = await model.User.findOne({username: username, password:password })
+  
+    console.log(req.body)
+    var data = await model.User.findOne(req.body)
     if(data != null)
     res.status(200).json( {status: "Đăng nhập thành công"})
     else

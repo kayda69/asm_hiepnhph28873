@@ -29,7 +29,6 @@ const bookSchema = mongoose.Schema({
       },
       pictures :{
         type: [String],
-        required: true
       }
 }, {collection : "book_tb", timestamps: true});
 

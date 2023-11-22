@@ -1,11 +1,19 @@
+const { request } = require('express');
 const model = require('../../model/book.model');
 const  code=require("http-status-codes").StatusCodes
 
 exports.addBook = async (req, res, next) => {
      var kq;
+     var files = req.files;
+     var paths = []
+   files.map(e=>{
+    paths.push(e.filename)
+   })
     if (req.method == 'POST') {
         try {
+            
             if(typeof(req.body) == 'object'){
+                req.body["pictures"] = paths
                 kq = await model.Book.insertMany(req.body);  
             }  
             res.status(code.OK).json({status: "Thành công"})

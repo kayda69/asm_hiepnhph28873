@@ -21,7 +21,7 @@ router.post("/create", upload.array('book_img'),control.addBook);
 //xoá
 router.post("/delete", control.deleteBook)
 // sửa
-router.post("/update", control.updateBook)
+router.post("/update", upload.array('book_img'), control.updateBook)
 //lấy thông tin tất cả user, only admin
 router.get("/getall", control.getAllBook)
 // không được quên

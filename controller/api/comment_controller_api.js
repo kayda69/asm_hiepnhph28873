@@ -34,7 +34,7 @@ exports.addCommet = async (req, res, next) => {
  
 }
 exports.deleteComment = async (req, res, next) =>{
-    var id = req.query.id
+    var id = req.body.id
     console.log(req.query)
     var data = await model.Comment.deleteOne({_id: id})
     if(data.deletedCount>0)

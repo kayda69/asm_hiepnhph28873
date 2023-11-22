@@ -15,6 +15,6 @@ router.post("/update", userCtrl.updateUser)
 //lấy thông tin tất cả user, only admin
 router.get("/getall", userCtrl.getAllUser)
 
-router.get("/login", userCtrl.logInUser)
+router.post("/login", userCtrl.logInUser)
 // không được quên
 module.exports = router;
